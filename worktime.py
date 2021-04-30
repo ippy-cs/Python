@@ -1,15 +1,17 @@
 import PySimpleGUI as sg
 from datetime import datetime
 
+# Layout
 layout = [
     [sg.Text('0000/00/00(00)', key='date', font=('Helvetica', 18)), sg.Button('Start', font=('Helvetica', 14)), sg.Button('End', font=('Helvetica', 14)), sg.Button('Reset', font=('Helvetica', 14))],
     [sg.Text('00:00:00', key='clock', font=('Helvetica', 48)), sg.Text('00:00:00', key='worktime', font=('Helvetica', 24))]
 ]
 
+# window
 win = sg.Window('Work Time', layout)
 
 while True:
-    event, val = win.read(timeout=10)
+    event, val = win.read(timeout=10) # 10times/min
     work = '00:00:00'
     if event in ('Exit', 'Quit', None): break
     if event == 'Start':
