@@ -11,7 +11,7 @@ layout = [
 win = sg.Window('Work Time', layout)
 
 while True:
-    event, val = win.read(timeout=10) # 10times/min
+    event, val = win.read(timeout=10) # 10times/
     work = '00:00:00'
     if event in ('Exit', 'Quit', None): break
     if event == 'Start':
