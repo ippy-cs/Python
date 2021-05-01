@@ -33,7 +33,7 @@ while True:
         event, values = win.read(timeout=100)
         work_time = time_as_int() - start_time
         win['worktime'].update('{:02d}:{:02d}:{:02d}'.format(
-        (work_time // 100) // 60 // 60, (work_time // 100) // 60, (work_time // 100) % 60)
+        ((work_time // 100) // 60 // 60) % 60, ((work_time // 100) // 60) % 60, (work_time // 100) % 60)
         )
 
     if event in ('Exit', 'Quit', None):
@@ -54,7 +54,7 @@ while True:
         work_time = end_time - start_time
         win['worktime'].update(text_color='#0000FF')
         win['worktime'].update('{:02d}:{:02d}:{:02d}'.format(
-        (work_time // 100) // 60 // 60, (work_time // 100) // 60, (work_time // 100) % 60)
+        ((work_time // 100) // 60 // 60) % 60, ((work_time // 100) // 60) % 60, (work_time // 100) % 60)
         )
     elif event == 'Reset':
         start = pause = False
